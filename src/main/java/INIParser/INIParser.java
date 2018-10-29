@@ -7,7 +7,7 @@ import java.io.File;
 
 /**
  * @author MaximLukianchuk
- * @author Marksmirnov13
+ * @author MarkSmirnov13
  */
 public class INIParser {
     private static Ini ini;
