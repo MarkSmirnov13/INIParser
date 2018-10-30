@@ -12,7 +12,7 @@ public class INIParser {
     private static Ini ini;
 
     public INIParser() throws Exception {
-        ini = new Ini(new File("C:\\Users\\MaximLukianchuk\\IdeaProjects\\OOPlaba3\\src\\main\\java\\exampleFile.ini"));
+        ini = new Ini(new File("src/main/java/exampleFile.ini"));
     }
 
     public Object getValue(String sectionName, String optionName) {
