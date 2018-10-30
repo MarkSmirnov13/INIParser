@@ -6,8 +6,9 @@ import org.ini4j.Ini;
 import java.io.File;
 
 /**
- * @apiNote Maxim
- * @apiNote Mark
+ * @author MaximLukianchuk
+ * @author  MarkSmirnov
+ * @version stable
 */
 
 public class INIParser {
