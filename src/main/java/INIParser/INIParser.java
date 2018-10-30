@@ -12,6 +12,8 @@ public class INIParser {
         ini = new Ini(new File("C:\\Users\\MaximLukianchuk\\IdeaProjects\\OOPlaba3\\src\\main\\java\\exampleFile.ini"));
     }
 
+    // ТЕСТОВЫЙ КОММЕНТ
+
     public Object getValue(String sectionName, String optionName) {
         Pattern patternText = Pattern.compile("[a-zA-Za]");
         String text = ini.get(sectionName, optionName).split(";")[0];
