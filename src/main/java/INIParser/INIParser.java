@@ -6,8 +6,8 @@ import org.ini4j.Ini;
 import java.io.File;
 
 /**
- * @author MaximLukianchuk
- * @author MarkSmirnov13
+ * @author Maxim
+ * @author Mark
  */
 public class INIParser {
     private static Ini ini;
