@@ -6,7 +6,7 @@ import org.ini4j.Ini;
 import java.io.File;
 
 /**
- * изменил твой коммент
+ *
  */
 public class INIParser {
     private static Ini ini;
