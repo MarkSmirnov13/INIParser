@@ -8,7 +8,8 @@ import java.io.File;
 /**
  * @author Maxim
  * @author Mark
- */
+*/
+
 public class INIParser {
     private static Ini ini;
 
