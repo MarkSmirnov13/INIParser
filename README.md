@@ -5,8 +5,8 @@ A java Class for reading INI data from file streams.
 
 ## Getting Started
 
-INIParser parser = new INIParser("fileName");
-System.out.println(parser.getValue("sectionName", "optionName"));
+* INIParser parser = new INIParser("fileName");
+* System.out.println(parser.getValue("sectionName", "optionName"));
 
 ## Built With
 
