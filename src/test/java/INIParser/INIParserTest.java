@@ -3,18 +3,17 @@ package INIParser;
 import Exceptions.FileFormatException;
 import Exceptions.InvalidSearchParameters;
 import Exceptions.WrongTypeException;
-import org.ini4j.Ini;
+import org.junit.Assert;
 import org.junit.Test;
-
-import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
-
-import static org.junit.Assert.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class INIParserTest {
 
     @Test
-    public void getValue() {
+    public void getValue1() {
         try {
             INIParser testIni = new INIParser("exampleFile.ini");
             System.out.println(testIni.getValue("COMMON", "DiskCachePath"));
@@ -33,6 +32,60 @@ public class INIParserTest {
             System.out.println(testIni.getValue("DEBUG", "PlentySockMaxQSize"));
         } catch (IOException | FileFormatException | InvalidSearchParameters | WrongTypeException E) {
             E.printStackTrace();
+        }
+    }
+
+    @Test
+    public void getValue2() throws InvalidSearchParameters, WrongTypeException, IOException, FileFormatException {
+        INIParser initest = new INIParser("exampleFile.ini");
+        Object actual = initest.getValue("COMMON", "DiskCachePath");
+
+        Object expexted = INIParser.getValue("COMMON", "DiskCachePath");
+        Assert.assertEquals(expexted, actual);
+    }
+
+    @Test(expected = FileNotFoundException.class)
+    public void INIParser() throws IOException, FileFormatException {
+        INIParser initest = new INIParser("exampleFile.txt");
+    }
+
+    @Test(expected = InvalidSearchParameters.class)
+    public void getValue_error_ISP() throws IOException, FileFormatException, InvalidSearchParameters, WrongTypeException {
+        INIParser iniParser = new INIParser("exampleFile.ini");
+        Object test = iniParser.getValue("COMMON", "QWERTY");
+    }
+
+    @Test(expected = NumberFormatException.class)
+    public void getValue_error_WTE_INTEGER() {
+        Pattern patternText = Pattern.compile("[0-9.]+");
+        String text = "50000000000000000000000000000";
+        Matcher matcher = patternText.matcher(text);
+
+        if (!matcher.matches()) {
+             String ans = text;
+        }
+        else if (text.contains(".")) {
+            Double.parseDouble(text);
+        }
+        else {
+            Integer.parseInt(text);
+        }
+    }
+
+    @Test(expected = NumberFormatException.class)
+    public void getValue_error_WTE_DOUBLE() {
+        Pattern patternText = Pattern.compile("[0-9.]+");
+        String text = "5000..";
+        Matcher matcher = patternText.matcher(text);
+
+        if (!matcher.matches()) {
+            String ans = text;
+        }
+        else if (text.contains(".")) {
+            Double.parseDouble(text);
+        }
+        else {
+            Integer ans = Integer.parseInt(text);
         }
     }
 }

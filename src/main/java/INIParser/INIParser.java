@@ -26,7 +26,7 @@ public class INIParser {
             }
     }
 
-    public Object getValue(String sectionName, String optionName) throws WrongTypeException, InvalidSearchParameters {
+    public static Object getValue(String sectionName, String optionName) throws WrongTypeException, InvalidSearchParameters {
         Pattern patternText = Pattern.compile("[0-9.]+");
         try {
             String text = ini.get(sectionName, optionName).split(";")[0];
