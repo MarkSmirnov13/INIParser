@@ -1,7 +1,9 @@
 package INIParser;
 
+import java.io.IOException;
 import java.util.regex.*;
 import org.ini4j.Ini;
+import Exceptions.FileFormatException;
 
 import java.io.File;
 
@@ -14,8 +16,11 @@ import java.io.File;
 public class INIParser {
     private static Ini ini;
 
-    public INIParser() throws Exception {
-        ini = new Ini(new File("src/main/java/exampleFile.ini"));
+    public INIParser(String fileName) throws FileFormatException, IOException {
+            ini = new Ini(new File("src/main/java/" + fileName));
+            if (!(fileName.contains(".ini"))) {
+                throw new FileFormatException("Incorrect file format");
+            }
     }
 
     public Object getValue(String sectionName, String optionName) {
