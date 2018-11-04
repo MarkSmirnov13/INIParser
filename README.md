@@ -20,7 +20,7 @@ A java Class for reading INI data from file streams.
 
 ## License
 
-This project is not licensed
+MIT license
 
 ## Acknowledgments
 
